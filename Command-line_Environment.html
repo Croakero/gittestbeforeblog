@@ -1,0 +1,42 @@
+<h4>中文测试</h4>
+
+<p>你永远有做不完的事<br/>作者：理查德·卡尔森   </p>
+
+<p>　　许多人过日子好像有个秘密的目标——非要把一切事情都做完不可。我们熬夜、早起、不敢纵情逸乐，让我们所爱的人一直等下去。可悲的是，太多的人就是因为让他们所爱的人等太久，最后对方最终放弃了这段感情。我以前就是这个样子。我们通常说服自己，忙的不可开交只是暂时的，一旦做完该做的事，我们就能平静、放松下来，并且心情愉快。事实上这样的境界永远不会到来，因为旧的事情做完，新的事情便会接踵而至。</p>
+
+<p>　　“待办清单”只以为着你有一些事情尚待处理，并不表示你得全部做完。人永远都有未打完的电话、未结束的计划、未完成的工作。事实上我们可以说，一张写得闷闷的“代办清单”才是成功的要素，因为这表明你的时间很宝贵。</p>
+
+<p>　　不过，不论你是什么大人物或在做什么大事，记住：没有什么事比你所爱的人的幸福和内心安宁更重要。如果你执着于完成所有的事情，那永远不会有幸福感。其实，几乎所有的事都是可以等的，我们的工作中真正属于“紧急”的事少之又少，只要你专心一意的工作，事情都会及时完成。</p>
+
+<p>　　我发现如果经常提醒自己，人生的目的并非完成所有事情，而是去享受生命旅途中的每一步，过着充满爱的生活我就不太会有非得完成所有事情不可的念头。记住：你离开人世的那一天，还是会留下未完成的事需要别人代劳，而且也一定有人代劳的，别再浪费生命每一分每一秒，做无谓的惋惜了。</p>
+
+<h3>Job Control</h3>
+
+<p>SIGQUIT is Ctrl+\;<br/>SIGSTOP is Ctrl+Z;  </p>
+
+<p>A &amp; after the command indicates the command should be ran in the background.For example nohop sleep 2000 &amp;<br/>bg %[jobid] sends a SIGCONT signal to that job.<br/>kill command can send any signal to any job.<br/><strong>Warning: NOHUP encapsulates whatever commands you are executing and ignores wherever you get a hang up signal so never use nohup on a remote server.</strong>  </p>
+
+<h3>Terminal Multiplexer</h3>
+
+<p>A Terminal Multiplexer like Tmux all you to create different workspaces that you work in.<br/>There are three core concepts in Tmux:<br/>- Sessions<br/>- Windows<br/>- Panes<br/>tmux command creates a new session which is separate from the shell we previously in.<br/>Ctrl+A (?) detaches the session and tmux a reattaches to the session.  </p>
+
+<p>What is weird is that I must remember the key-bindings of tmux.</p>
+
+<p>Ctrl+A d to detach<br/>tmux new -t [sessionname] to create a completely different session.<br/>tmux ls to show how many sessions we now have.<br/>tmux a -t \&lt;sessionname\&gt; to attach the session.<br/>Ctrl+A c to create a new window.<br/>Ctrl+A p to go up through the previous window,correspondingly,Ctrl+A n to go to the next window,Ctrl+A \&lt;windownumber\&gt; to go to selected window.<br/>Ctrl+A &quot; will split the current display into two different panes.      <br/>Ctrl+A % will do the same as Ctrl+A &quot; but split the current display vercically.<br/>Ctrl+A \&lt;arrowkeys\&gt; to swich through different panes.<br/>Ctrl+A \&lt;space\&gt; would equispace the current panes.<br/>Ctrl+A z to expand the current pane to take over all spaces and again to go back to it.  </p>
+
+<h3>Dotfiles</h3>
+
+<p>Alias is a command that will be a built-in in your shell,it would remap a short sequence of characters to a longer sequence.
+For example alias ll=&quot;ls -lah&quot; <strong>Note that there is not any space around the &#39;=&#39;</strong><br/>You can alter changes by putting settings into ~/.bashrc and they would be saved and are loaded when bash was open.<br/>Shells are highly configurable.<br/>Symlinks can cheat the system. ln -s path/to/the/file symlink is really useful.  </p>
+
+<h3>Remote Machines</h3>
+
+<h4>SSH</h4>
+
+<p>The main command for working with remote machines is ssh.<br/>ssh \&lt;username\&gt;@\&lt;address\&gt;<br/>ssh requires your password each time and we can use ssh key to avoid this.ssh keys just use public key encryption to create a pair of ssh keys: a public key and a private key and then you can give the server the public part of the key and whenever you want to authenticate instead of using the password,it is gonna use the private key to prove to the server that you are actually who you say you are.<br/>Passphrase encrypts the private part of the key.<br/>scp denotes ssh copy.<br/>rsync -avP Preserve all the permissions whenever possible,to try to check if the file has already been copied.Rsync would start from where it stopped.<br/>We can customize ssh by editing ~/.ssh/config  </p>
+
+<h4>Tmux and SSH</h4>
+
+<p>If you tmux something and detached them,the processes would be running remotely in background.  </p>
+
+
